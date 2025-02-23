@@ -83,7 +83,7 @@ def create_excel_file(result, patterns, output_file):
 
 if __name__ == "__main__":
     rsc_file = 'rsc_converter/raws.rsc'
-    pattern_file = 'rsc_converter/pattern.json'
+    pattern_file = 'rsc_converter/patterns.json'
     output_file = 'rsc_converter/output.xlsx'
 
     # Load patterns
