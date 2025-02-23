@@ -1,0 +1,29 @@
+{
+    "patterns": [
+        {
+            "name": "name",
+            "description": "Pattern to capture key-value pairs where the value may be quoted or unquoted.",
+            "pattern": "name=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
+            "name": "comment",
+            "description": "Pattern to capture key-value pairs where the value may be quoted or unquoted.",
+            "pattern": "comment=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
+            "name": "target",
+            "description": "Pattern to capture IP address targets in CIDR notation.",
+            "pattern": "target=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
+            "name": "burst-time",
+            "description": "Pattern to capture burst-time values in the format 'Xs/Xs'.",
+            "pattern": "burst-time=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
+            "name": "max-limit",
+            "description": "Pattern to capture max-limit values in the format 'X/Y' where X and Y are bandwidth units.",
+            "pattern": "max-limit=(?:(\"[^\"]*\")|([^\\s]+))"
+        }
+    ]
+}
