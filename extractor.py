@@ -1,6 +1,8 @@
 import pandas as pd
+from datetime import datetime
 import re
 import json
+import os
 
 # Captures everything before '=' and trims spaces after '='
 def trim_whitespace_after_equal(line):
@@ -82,9 +84,10 @@ def create_excel_file(result, patterns, output_file):
     print(f'{output_file} created')
 
 if __name__ == "__main__":
-    rsc_file = 'rsc_converter/raws.rsc'
-    pattern_file = 'rsc_converter/patterns.json'
-    output_file = 'rsc_converter/output.xlsx'
+    current_dir = os.path.basename(os.path.dirname(os.path.realpath(__file__)))
+    rsc_file = f'{current_dir}/raws.rsc'
+    pattern_file = f'{current_dir}/patterns.json'
+    output_file = f'{current_dir}/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx'
 
     # Load patterns
     patterns = load_patterns(pattern_file)
