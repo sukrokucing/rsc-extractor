@@ -63,6 +63,21 @@ def extract_data(processed, patterns):
                 value = match[0] if match[0] else match[1]
                 data[key] = value.strip('"')
         if data:
+            data['ip_address']=''
+            data['paket']='150K'
+            # check if data has key "burst-limit"
+            if 'burst-limit' in data:
+                # check if burst-limit contain 10M
+                if '10M' in data['burst-limit']:
+                    # add new key-value pair to data "paket"
+                    data['paket'] = '150K'
+                elif '20M' in data['burst-limit']:
+                    data['paket'] = '200K'
+                elif '30M' in data['burst-limit']:
+                    data['paket'] = '300K'
+            if 'target' in data:
+                # split string in 'target' by '/' and get second array
+                data['ip_address'] = data['target'].split('/')[0]
             result.append(data)
 
     return result
@@ -71,6 +86,10 @@ def extract_data(processed, patterns):
 def create_excel_file(result, patterns, output_file):
     # Create column from pattern['name']
     columns = [pattern['name'] for pattern in patterns]
+
+    # add new column 'ip_address' and 'paket'
+    columns.append('ip_address')
+    columns.append('paket')
 
     # Create DataFrame
     df = pd.DataFrame(result, columns=columns)
