@@ -16,6 +16,16 @@
             "pattern": "target=(?:(\"[^\"]*\")|([^\\s]+))"
         },
         {
+            "name": "burst-limit",
+            "description": "Pattern to capture burst-time values in the format 'Xs/Xs'.",
+            "pattern": "burst-limit=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
+            "name": "burst-threshold",
+            "description": "Pattern to capture burst-time values in the format 'Xs/Xs'.",
+            "pattern": "burst-threshold=(?:(\"[^\"]*\")|([^\\s]+))"
+        },
+        {
             "name": "burst-time",
             "description": "Pattern to capture burst-time values in the format 'Xs/Xs'.",
             "pattern": "burst-time=(?:(\"[^\"]*\")|([^\\s]+))"
